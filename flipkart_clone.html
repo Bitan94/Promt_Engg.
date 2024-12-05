@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">Flipkart<img src="flipkart.jpg.webp"></div>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search for products, brands and more">
+            <button onclick="searchProduct()">Search</button>
+        </div>
+        <div class="cart">
+            <button onclick="openCart()">Cart</button>
+        </div>
+    </header>
+
+    
+    <!-- Product Section -->
+    <main>
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="grocery.jpg" alt="Product 1">
+                <h3>Product 1</h3>
+                <p>$100</p>
+                <button onclick="addToCart('Product 1')">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <img src="clothes.jpg" alt="Product 2">
+                <h3>Product 2</h3>
+                <p>$150</p>
+                <button onclick="addToCart('Product 2')">Add to Cart</button>
+            </div>
+            <!-- Add more product cards here -->
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Flipkart Clone. All rights reserved for BITAN HALDER.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>/* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+    
+    /* Header Section */
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #2874f0;
+        color: white;
+        padding: 10px 20px;
+        flex-wrap: wrap; /* For responsiveness */
+    }
+    
+    header .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    
+    header .search-bar {
+        flex: 1;
+        margin: 10px 20px;
+    }
+    
+    header .search-bar input {
+        padding: 8px;
+        width: 100%;
+        max-width: 300px;
+        border: none;
+        border-radius: 4px;
+    }
+    
+    header .search-bar button, header .cart button {
+        padding: 8px 12px;
+        background-color: #ff9f00;
+        border: none;
+        color: white;
+        cursor: pointer;
+    }
+    
+    /* Product Section */
+    main {
+        padding: 20px;
+    }
+    
+    main h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .product-grid {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .product-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .product-card img {
+        max-width: 100%;
+        border-radius: 8px;
+    }
+    
+    .product-card button {
+        background-color: #2874f0;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    
+    /* Footer Section */
+    footer {
+        text-align: center;
+        padding: 10px;
+        background-color: #333;
+        color: white;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        header .search-bar {
+            margin: 10px 0;
+        }
+    
+        .product-grid {
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+    </style>
+
+<script>// Function to simulate searching for products
+    function searchProduct() {
+        const searchInput = document.getElementById("search").value;
+        if (searchInput.trim() !== "") {
+            alert(`Searching for "${searchInput}"...`);
+        } else {
+            alert("Please enter a search term!");
+        }
+    }
+    
+    // Function to simulate adding a product to the cart
+    function addToCart(productName) {
+        alert(`${productName} added to cart!`);
+    }
+    
+    // Function to simulate opening the cart
+    function openCart() {
+        alert("Your cart is empty!");
+    }
+    
+    // Handle resizing events
+    function handleResize() {
+        const width = window.innerWidth;
+        const header = document.querySelector('header');
+        const productGrid = document.querySelector('.product-grid');
+    
+        if (width < 768) {
+            console.log("Mobile view");
+            header.style.flexDirection = "column";
+            productGrid.style.flexDirection = "column";
+        } else {
+            console.log("Desktop view");
+            header.style.flexDirection = "row";
+            productGrid.style.flexDirection = "row";
+        }
+    }
+    
+    // Add event listener for resizing
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleResize); // Trigger on page load</script>
